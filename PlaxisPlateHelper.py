@@ -89,7 +89,7 @@ class MainW(Tk):
         self.label_filename = tk.Label(self.selectplate, text='Filename:')
         self.entry_filename = tk.Entry(self.selectplate,textvariable=self.filename)
         self.label_attribute = tk.Label(self.selectplate, text='Attribute:')
-        go_button = tk.Button(self.selectplate, text="Go", command=self.PrintPlateResults)
+        extract_button = tk.Button(self.selectplate, text="Extract", command=self.PrintPlateResults)
         self.label_status = tk.Label(self.newWindow, textvariable=self.status)
         self.status.set("Connected to Plaxis")
 
@@ -115,7 +115,7 @@ class MainW(Tk):
             checkbox = tk.Checkbutton(self.selectplate, text=attribute, var=self.selectedattribute[attribute])
             checkbox.grid(row = row_n, column = 1, sticky = tk.W, **self.options)
             row_n+=1
-        go_button.grid(row = row_n+1, column = 1, sticky = tk.W, **self.options)
+        extract_button.grid(row = row_n+1, column = 1, sticky = tk.W, **self.options)
         self.label_status.grid(row = row_n+3, column = 0, sticky = tk.W, **self.options, columnspan=2) 
 
     def PrintPlateResults(self):
@@ -212,7 +212,7 @@ class MainW(Tk):
             col+=int(n_col+3)
 
         workbook.close()
-        print("Results Extracted")
+        print("Done")
         self.UpdateStatus("Done")
 
     def UpdateStatus(self,text):
